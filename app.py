@@ -6,12 +6,11 @@ from job_posting.job_crew import create_tasks_crew
 from langchain.llms import Ollama
 ollama_llama3 = Ollama(model="llama3")
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
-# @app.route('/route_prompt', methods=['POST'])
+@app.route('/route_prompt', methods=['POST'])
 def route_prompt():
-    # data = request.get_json()
-    data = {"prompt" : "3+4"}
+    data = request.get_json()
     general_agent = Agent(role = "Prompt Analyser",
                       goal = """Analyses whether a given prompt is for performing mathematical operation or generating job description or neither of the two, the answer should be always between the three words - 'math' or 'job' or 'none'""",
                       backstory = """You are an excellent prompt analyser who can figure out a prompt is meant for which task - 'math' for prompts meant for performing mathematical operation, 'job' for prompts meant for generating job description and 'none' for neither of the two""",
@@ -30,10 +29,10 @@ def route_prompt():
 
     result = crew.kickoff(inputs={"prompt" : "3+4"})
     
-    if result=='job':
+    if result=='math':
         # Route to math crew
         result = mcrew.kickoff(inputs=data)
-    elif result=='math':
+    elif result=='job':
         # Route to job description crew
         jcrew = create_tasks_crew(data["prompt"])
         result = jcrew.kickoff()
@@ -41,9 +40,7 @@ def route_prompt():
         # Error response
         result = {"error": "The prompt does not match any known task. Please provide a mathematical expression or request a job description."}
     
-    # return jsonify(result)
-    return result
+    return jsonify(result)
 
 if __name__ == '__main__':
-#     app.run(debug=True)
-    route_prompt()
+    app.run(debug=True)
