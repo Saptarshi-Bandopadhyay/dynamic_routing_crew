@@ -1,5 +1,5 @@
 python-dotenv==1.0.1
 crewai
-'crewai[tools]'
+crewai[tools]
 flask
 langchain
