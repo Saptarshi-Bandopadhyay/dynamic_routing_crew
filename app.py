@@ -27,7 +27,7 @@ def route_prompt():
                 verbose=2
             )
 
-    result = crew.kickoff(inputs={"prompt" : "3+4"})
+    result = crew.kickoff(inputs=data)
     
     if result=='math':
         # Route to math crew
