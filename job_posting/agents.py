@@ -18,6 +18,7 @@ class Agents():
 			tools=[web_search_tool, seper_dev_tool],
 			backstory='Expert in analyzing company cultures and identifying key values and needs from various sources, including websites and brief descriptions.',
 			verbose=True,
+			allow_delegation=False,
 			llm = ollama_llama3
 		)
 
@@ -28,6 +29,7 @@ class Agents():
 				tools=[web_search_tool, seper_dev_tool, file_read_tool],
 				backstory='Skilled in crafting compelling job descriptions that resonate with the company\'s values and attract the right candidates.',
 				verbose=True,
+				allow_delegation=False,
 				llm = ollama_llama3
 			)
 
@@ -38,5 +40,6 @@ class Agents():
 				tools=[web_search_tool, seper_dev_tool, file_read_tool],
 				backstory='A meticulous editor with an eye for detail, ensuring every piece of content is clear, engaging, and grammatically perfect.',
 				verbose=True,
+				allow_delegation=False,
 				llm = ollama_llama3
 			)
