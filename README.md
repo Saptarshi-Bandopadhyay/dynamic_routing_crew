@@ -6,6 +6,12 @@ This is a project consisting of three crews which perform the following operatio
 3. Job Description Generation - This provides a job description based on a given prompt which describes the company, their needs, benefits that they will provide etc.
 
 The prompts are sent through a post request to a REST API made using Flask.
+The prompt is sent using json, in the following format - 
+```
+{
+    "prompt" : "your_prompt"
+}
+```
 
 ## Usage
 
