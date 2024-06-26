@@ -3,3 +3,4 @@ crewai
 crewai[tools]
 flask
 langchain
+langchain-community
