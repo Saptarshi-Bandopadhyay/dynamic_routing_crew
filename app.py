@@ -30,14 +30,11 @@ def route_prompt():
     result = crew.kickoff(inputs=data)
     
     if result=='math':
-        # Route to math crew
         result = mcrew.kickoff(inputs=data)
     elif result=='job':
-        # Route to job description crew
         jcrew = create_tasks_crew(data["prompt"])
         result = jcrew.kickoff()
     else:
-        # Error response
         result = {"error": "The prompt does not match any known task. Please provide a mathematical expression or request a job description."}
     
     return jsonify(result)

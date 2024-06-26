@@ -45,5 +45,5 @@ curl -X POST http://127.0.0.1:5000/route_prompt -H "Content-Type: application/js
 
 For different prompts, different outputs can be observed - 
 1. For a mathematical prompt the resultant output is sent back.
-2. For a job description prompt the resultant job description is stored in the ___ file.
+2. For a job description prompt the resultant job description is stored in the 'job_posting.md' file.
 3. For a prompt that is neither of the above, an error message is sent back.
